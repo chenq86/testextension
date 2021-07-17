@@ -1069,8 +1069,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% parts="neopixel"
         //% blockSetVariable=range
-        //% weight= 51
-        //% advanced= true
+        //% weight= 52
         range(start: number, length: number): Strip {
             start = start >> 0;
             length = length >> 0;
