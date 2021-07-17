@@ -1093,6 +1093,7 @@ namespace ICBit {
         //% blockId="neopixel_shift" block="%strip|shift pixels by %offset"
         //% strip.defl=strip
         //% parts="neopixel"
+        //% weight= 50
         shift(offset: number = 1): void {
             offset = offset >> 0;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -1107,6 +1108,7 @@ namespace ICBit {
         //% blockId="neopixel_rotate" block="%strip|rotate pixels by %offset"
         //% strip.defl=strip
         //% parts="neopixel"
+        //% weight=50
         rotate(offset: number = 1): void {
             offset = offset >> 0;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
