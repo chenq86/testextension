@@ -410,7 +410,7 @@ namespace ICBit {
 
     }
     //% blockId=SuperBit_MotorRun block="Motor|%index|speed(-255~255) %speed"
-    //% weight=93
+    //% weight=95
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function MotorRun(index: enMotors, speed: number): void {
@@ -732,7 +732,7 @@ namespace ICBit {
      * @param addr is i2c addr, eg: 60
      */
     //% blockId="OLED12864_I2C_init" block="init OLED with addr %addr"
-    //% weight=100 blockGap=8
+    //% weight=85 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
     export function init(addr: number) {
         _I2CAddr = addr;
