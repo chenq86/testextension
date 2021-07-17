@@ -727,7 +727,7 @@ namespace ICBit {
      * @param num is the number will be show, eg: 12
      * @param color is number color, eg: 1
      */
-    //% blockId="OLED12864_I2C_NUMBER" block="显示 a Number 在 x %x|y %y|数字 %num|颜色 %color"
+    //% blockId="OLED12864_I2C_NUMBER" block="显示 数字 在 x %x|y %y|数字 %num|颜色 %color"
     //% weight=80 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
     export function showNumber(x: number, y: number, num: number, color: number = 1) {
@@ -813,7 +813,7 @@ namespace ICBit {
          * Shows all LEDs to a given color (range 0-255 for r, g, b).
          * @param rgb RGB color of the LED
          */
-        //% blockId="neopixel_set_strip_color" block="%strip|show color %rgb=neopixel_colors"
+        //% blockId="neopixel_set_strip_color" block="%strip|显示 颜色 %rgb=neopixel_colors"
         //% strip.defl=strip
         //% parts="neopixel"
         showColor(rgb: number) {
@@ -827,7 +827,7 @@ namespace ICBit {
          * @param startHue the start hue value for the rainbow, eg: 1
          * @param endHue the end hue value for the rainbow, eg: 360
          */
-        //% blockId="neopixel_set_strip_rainbow" block="%strip|显示 彩虹 from %startHue|到 %endHue"
+        //% blockId="neopixel_set_strip_rainbow" block="%strip|显示 彩虹 从 %startHue|到 %endHue"
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced= true
@@ -1294,7 +1294,7 @@ namespace ICBit {
      * @param s saturation from 0 to 99
      * @param l luminosity from 0 to 99
      */
-    //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"
+    //% blockId=neopixelHSL block="色度 %h|饱和度 %s|亮度 %l"
     //% weight=32
     export function hsl(h: number, s: number, l: number): number {
         h = Math.round(h);
