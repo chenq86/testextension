@@ -18,7 +18,7 @@ enum RGB {
     CLEAR
 }
 
-
+//% color="#ECA40D" icon="\uf085"
 namespace ICBit {
     /**
      * Send a ping and get the echo time (in microseconds) as a result
