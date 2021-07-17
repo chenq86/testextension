@@ -296,11 +296,7 @@ namespace ICBit {
         S1 = 0,
         S2,
         S3,
-        S4,
-        S5,
-        S6,
-        S7,
-        S8
+        S4
     }
     export enum enMotors {
         M1 = 8,
