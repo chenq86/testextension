@@ -935,6 +935,7 @@ namespace ICBit {
         //% blockId="neopixel_set_pixel_color" block="%strip|set pixel color at %pixeloffset|to %rgb=neopixel_colors"
         //% strip.defl=strip
         //% parts="neopixel"
+
         setPixelColor(pixeloffset: number, rgb: number): void {
             this.setPixelRGB(pixeloffset >> 0, rgb >> 0);
         }
@@ -1015,7 +1016,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_length" block="%strip|length"
         //% strip.defl=strip
-        //% weight=10
+        //% weight=32
         //% advanced= true
         length() {
             return this._length;
@@ -1068,7 +1069,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% parts="neopixel"
         //% blockSetVariable=range
-        //% weight= 90
+        //% weight= 51
         //% advanced= true
         range(start: number, length: number): Strip {
             start = start >> 0;
@@ -1235,7 +1236,7 @@ namespace ICBit {
     //% colorSecondary="#FFFFFF"
     //% trackArgs=0,2
     //% blockSetVariable=strip
-    //% weight=90
+    //% weight=51
     export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): Strip {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
