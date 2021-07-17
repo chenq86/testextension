@@ -53,7 +53,7 @@ enum NeoPixelMode {
     RGB_RGB = 3
 }
 
-//% color="#eb834b" icon="\uf085"
+//% color="#eb834b" icon="\uf085" block="IC:bit"
 namespace ICBit {
     /**
      * Send a ping and get the echo time (in microseconds) as a result
