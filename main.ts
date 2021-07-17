@@ -53,7 +53,7 @@ enum NeoPixelMode {
     RGB_RGB = 3
 }
 
-//% color="#ECA40D" icon="\uf085"
+//% color="#ECA40D" icon="\uf085" colorSecondary="#FFFFFF"
 namespace ICBit {
     /**
      * Send a ping and get the echo time (in microseconds) as a result
@@ -933,7 +933,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_pixel_color" block="%strip|set pixel color at %pixeloffset|to %rgb=neopixel_colors"
         //% strip.defl=strip
-        //% weight= 60
+        //% weight= 61
         setPixelColor(pixeloffset: number, rgb: number): void {
             this.setPixelRGB(pixeloffset >> 0, rgb >> 0);
         }
@@ -977,7 +977,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_pixel_white" block="%strip|set pixel white LED at %pixeloffset|to %white"
         //% strip.defl=strip
-        //% weight= 60
+        //% weight= 61
         setPixelWhiteLED(pixeloffset: number, white: number): void {
             if (this._mode === NeoPixelMode.RGBW) {
                 this.setPixelW(pixeloffset >> 0, white >> 0);
@@ -1013,7 +1013,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_length" block="%strip|length"
         //% strip.defl=strip
-        //% weight= 60
+        //% weight= 50
         length() {
             return this._length;
         }
@@ -1122,7 +1122,7 @@ namespace ICBit {
          */
         //% blockId=neopixel_power block="%strip|power (mA)"
         //% strip.defl=strip
-        //% weight= 60
+        //% weight= 50
         power(): number {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const end = this.start + this._length;
@@ -1227,7 +1227,7 @@ namespace ICBit {
     //% blockId="neopixel_create" block="NeoPixel at pin %pin|with %numleds|leds as %mode"
     //% trackArgs=0,2
     //% blockSetVariable=strip
-    //% weight= 60
+    //% weight= 61
     export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): Strip {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -1248,7 +1248,7 @@ namespace ICBit {
      * @param blue value of the blue channel between 0 and 255. eg: 255
      */
     //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue"
-    //% weight= 60
+    //% weight= 50
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
     }
@@ -1257,7 +1257,7 @@ namespace ICBit {
      * Gets the RGB value of a known color
     */
     //% blockId="neopixel_colors" block="%color"
-    //% weight= 60
+    //% weight= 50
     export function colors(color: NeoPixelColors): number {
         return color;
     }
@@ -1285,7 +1285,7 @@ namespace ICBit {
      * @param l luminosity from 0 to 99
      */
     //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"
-    //% weight= 60
+    //% weight= 50
     export function hsl(h: number, s: number, l: number): number {
         h = Math.round(h);
         s = Math.round(s);
