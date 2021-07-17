@@ -662,7 +662,7 @@ namespace ICBit {
      */
     //% blockId="OLED12864_I2C_PIXEL" block="set pixel at x %x|y %y|color %color"
     //% parts=OLED12864_I2C trackArgs=0
-    //% advanced = true
+    //% weight=80
     export function pixel(x: number, y: number, color: number = 1) {
         let page = y >> 3
         let shift_page = y % 8
@@ -931,6 +931,7 @@ namespace ICBit {
         //% blockId="neopixel_set_pixel_color" block="%strip|set pixel color at %pixeloffset|to %rgb=neopixel_colors"
         //% strip.defl=strip
         //% parts="neopixel"
+        //% weight= 95
         //% advanced = true
         setPixelColor(pixeloffset: number, rgb: number): void {
             this.setPixelRGB(pixeloffset >> 0, rgb >> 0);
@@ -959,6 +960,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced = true
+        //% weight= 95
         setMatrixColor(x: number, y: number, rgb: number) {
             if (this._matrixWidth <= 0) return; // not a matrix, ignore
             x = x >> 0;
@@ -979,6 +981,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced = true
+        //% weight= 95
         setPixelWhiteLED(pixeloffset: number, white: number): void {
             if (this._mode === NeoPixelMode.RGBW) {
                 this.setPixelW(pixeloffset >> 0, white >> 0);
@@ -1029,6 +1032,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced = true
+        //% weight= 95
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
         }
