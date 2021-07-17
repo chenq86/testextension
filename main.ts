@@ -6,7 +6,7 @@ enum PingUnit {
     //% block="inches"
     Inches
 }
-namespace sonar {
+namespace 超声波传感器 {
     /**
      * Send a ping and get the echo time (in microseconds) as a result
      * @param trig tigger pin
