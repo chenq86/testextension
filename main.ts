@@ -995,6 +995,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced = true
+        //% weight= 91
         show() {
             // only supported in beta
             // ws2812b.setBufferMode(this.pin, this._mode);
@@ -1009,6 +1010,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced = true
+        //% weight= 91
         clear(): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             this.buf.fill(0, this.start * stride, this._length * stride);
@@ -1020,6 +1022,7 @@ namespace ICBit {
         //% blockId="neopixel_length" block="%strip|length"
         //% strip.defl=strip
         //% advanced = true
+        //% weight= 90
         length() {
             return this._length;
         }
@@ -1044,6 +1047,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced = true
+        //% weight= 95
         easeBrightness(): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const br = this.brightness;
@@ -1075,6 +1079,7 @@ namespace ICBit {
         //% parts="neopixel"
         //% blockSetVariable=range
         //% advanced = true
+        //% weight= 96
         range(start: number, length: number): Strip {
             start = start >> 0;
             length = length >> 0;
@@ -1136,6 +1141,7 @@ namespace ICBit {
         //% blockId=neopixel_power block="%strip|power (mA)"
         //% strip.defl=strip
         //% advanced = true
+        //% weight= 90
         power(): number {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const end = this.start + this._length;
@@ -1242,6 +1248,7 @@ namespace ICBit {
     //% trackArgs=0,2
     //% blockSetVariable=strip
     //% advanced = true
+    //% weight= 96
     export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): Strip {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -1263,6 +1270,7 @@ namespace ICBit {
      */
     //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue"
     //% advanced = true
+    //% weight= 90
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
     }
@@ -1272,6 +1280,7 @@ namespace ICBit {
     */
     //% blockId="neopixel_colors" block="%color"
     //% advanced = true
+    //% weight= 90
     export function colors(color: NeoPixelColors): number {
         return color;
     }
@@ -1300,6 +1309,7 @@ namespace ICBit {
      */
     //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"
     //% advanced = true
+    //% weight= 90
     export function hsl(h: number, s: number, l: number): number {
         h = Math.round(h);
         s = Math.round(s);
