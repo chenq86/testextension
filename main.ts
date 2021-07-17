@@ -790,6 +790,12 @@ namespace ICBit {
         _ZOOM = 1
     }
 
+
+
+
+
+
+
     /**
      * A NeoPixel strip
      */
@@ -809,8 +815,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_strip_color" block="%strip|show color %rgb=neopixel_colors"
         //% strip.defl=strip
-        //% advanced = true
-        //% parts="neopixel"
+        //% weight= 80
+        //% parts="neopixel" advanced = true
         showColor(rgb: number) {
             rgb = rgb >> 0;
             this.setAllRGB(rgb);
@@ -824,8 +830,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_strip_rainbow" block="%strip|show rainbow from %startHue|to %endHue"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
+        //% weight= 80
+        //% parts="neopixel" advanced = true
         showRainbow(startHue: number = 1, endHue: number = 360) {
             if (this._length <= 0) return;
 
@@ -892,8 +898,8 @@ namespace ICBit {
         //% blockId=neopixel_show_bar_graph block="%strip|show bar graph of %value|up to %high"
         //% strip.defl=strip
         //% icon="\uf080"
-        //% parts="neopixel"
-        //% advanced = true
+        //% weight= 80
+        //% parts="neopixel" advanced = true
         showBarGraph(value: number, high: number): void {
             if (high <= 0) {
                 this.clear();
@@ -930,9 +936,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_pixel_color" block="%strip|set pixel color at %pixeloffset|to %rgb=neopixel_colors"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% weight= 95
-        //% advanced = true
+        //% weight= 90
+        //% parts="neopixel" advanced = true
         setPixelColor(pixeloffset: number, rgb: number): void {
             this.setPixelRGB(pixeloffset >> 0, rgb >> 0);
         }
@@ -943,8 +948,8 @@ namespace ICBit {
          */
         //% blockId=neopixel_set_matrix_width block="%strip|set matrix width %width"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
+        //% weight= 80
+        //% parts="neopixel" advanced = true
         setMatrixWidth(width: number) {
             this._matrixWidth = Math.min(this._length, width >> 0);
         }
@@ -958,9 +963,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_matrix_color" block="%strip|set matrix color at x %x|y %y|to %rgb=neopixel_colors"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
-        //% weight= 95
+        //% weight= 90
+        //% parts="neopixel" advanced = true
         setMatrixColor(x: number, y: number, rgb: number) {
             if (this._matrixWidth <= 0) return; // not a matrix, ignore
             x = x >> 0;
@@ -979,9 +983,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_pixel_white" block="%strip|set pixel white LED at %pixeloffset|to %white"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
-        //% weight= 95
+        //% weight= 80
+        //% parts="neopixel" advanced = true
         setPixelWhiteLED(pixeloffset: number, white: number): void {
             if (this._mode === NeoPixelMode.RGBW) {
                 this.setPixelW(pixeloffset >> 0, white >> 0);
@@ -993,9 +996,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_show" block="%strip|show"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
-        //% weight= 91
+        //% weight= 11
+        //% parts="neopixel" advanced = true
         show() {
             // only supported in beta
             // ws2812b.setBufferMode(this.pin, this._mode);
@@ -1008,9 +1010,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_clear" block="%strip|clear"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
-        //% weight= 91
+        //% weight= 11
+        //% parts="neopixel" advanced = true
         clear(): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             this.buf.fill(0, this.start * stride, this._length * stride);
@@ -1021,8 +1022,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_length" block="%strip|length"
         //% strip.defl=strip
-        //% advanced = true
-        //% weight= 90
+        //% weight= 10
+        //% parts="neopixel" advanced = true
         length() {
             return this._length;
         }
@@ -1033,9 +1034,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_brightness" block="%strip|set brightness %brightness"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
-        //% weight= 95
+        //% weight= 80
+        //% parts="neopixel" advanced = true
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
         }
@@ -1045,9 +1045,8 @@ namespace ICBit {
          **/
         //% blockId="neopixel_each_brightness" block="%strip|ease brightness"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
-        //% weight= 95
+        //% weight= 80
+        //% parts="neopixel" advanced = true
         easeBrightness(): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const br = this.brightness;
@@ -1076,10 +1075,9 @@ namespace ICBit {
          */
         //% blockId="neopixel_range" block="%strip|range from %start|with %length|leds"
         //% strip.defl=strip
-        //% parts="neopixel"
         //% blockSetVariable=range
-        //% advanced = true
-        //% weight= 96
+        //% weight= 90
+        //% parts="neopixel" advanced = true
         range(start: number, length: number): Strip {
             start = start >> 0;
             length = length >> 0;
@@ -1101,8 +1099,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_shift" block="%strip|shift pixels by %offset"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
+        //% weight= 80
+        //% parts="neopixel" advanced = true
         shift(offset: number = 1): void {
             offset = offset >> 0;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -1116,8 +1114,8 @@ namespace ICBit {
          */
         //% blockId="neopixel_rotate" block="%strip|rotate pixels by %offset"
         //% strip.defl=strip
-        //% parts="neopixel"
-        //% advanced = true
+        //% weight= 80
+        //% parts="neopixel" advanced = true
         rotate(offset: number = 1): void {
             offset = offset >> 0;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -1128,7 +1126,6 @@ namespace ICBit {
          * Set the pin where the neopixel is connected, defaults to P0.
          */
         //% parts="neopixel"
-        //% advanced = true
         setPin(pin: DigitalPin): void {
             this.pin = pin;
             pins.digitalWritePin(this.pin, 0);
@@ -1140,7 +1137,8 @@ namespace ICBit {
          */
         //% blockId=neopixel_power block="%strip|power (mA)"
         //% strip.defl=strip
-        //% advanced = true weight= 70
+        //% weight= 10
+        //% parts="neopixel" advanced = true
         power(): number {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const end = this.start + this._length;
@@ -1243,11 +1241,10 @@ namespace ICBit {
      * @param numleds number of leds in the strip, eg: 24,30,60,64
      */
     //% blockId="neopixel_create" block="NeoPixel at pin %pin|with %numleds|leds as %mode"
-    //% parts="neopixel"
     //% trackArgs=0,2
     //% blockSetVariable=strip
-    //% advanced = true
-    //% weight= 96
+    //% weight= 90
+    //% parts="neopixel" advanced = true
     export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): Strip {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -1268,7 +1265,8 @@ namespace ICBit {
      * @param blue value of the blue channel between 0 and 255. eg: 255
      */
     //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue"
-    //% advanced = true weight= 70
+    //% weight= 10
+    //% parts="neopixel" advanced = true
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
     }
@@ -1277,7 +1275,8 @@ namespace ICBit {
      * Gets the RGB value of a known color
     */
     //% blockId="neopixel_colors" block="%color"
-    //% advanced = true weight= 70
+    //% weight= 10
+    //% parts="neopixel" advanced = true
     export function colors(color: NeoPixelColors): number {
         return color;
     }
@@ -1305,7 +1304,8 @@ namespace ICBit {
      * @param l luminosity from 0 to 99
      */
     //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"
-    //% advanced = true weight= 70
+    //% weight= 10
+    //% parts="neopixel" advanced = true
     export function hsl(h: number, s: number, l: number): number {
         h = Math.round(h);
         s = Math.round(s);
