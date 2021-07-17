@@ -62,7 +62,7 @@ namespace ICBit {
      * @param unit desired conversion unit
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
-    //% blockId=sonar_ping block="ping trig %trig|echo %echo|unit %unit" weight=29
+    //% blockId=sonar_ping block="ping trig %trig|echo %echo|单位 %unit" weight=29
     export function ping(trig: DigitalPin, echo: DigitalPin, unit: PingUnit, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
@@ -316,12 +316,12 @@ namespace ICBit {
 
 
     export enum enPos {
-        //% blockId="forward" block="forward"
+        //% blockId="forward" block="前进"
         forward = 1,
-        //% blockId="reverse" block="reverse"
-        reverse = 2,
-        //% blockId="stop" block="stop"
-        stop = 3
+        // //% blockId="reverse" block="reverse"
+        // reverse = 2,
+        //% blockId="stop" block="后退"
+        stop = 2
     }
 
 
@@ -398,7 +398,7 @@ namespace ICBit {
 
 
 
-    //% blockId=SuperBit_Servo block="Servo(180°)|num %num|value %value"
+    //% blockId=SuperBit_Servo block="舵机(180°)|编号 %num|角度 %value"
     //% weight=97
     //% blockGap=10
     //% num.min=1 num.max=4 value.min=0 value.max=180
@@ -412,7 +412,7 @@ namespace ICBit {
 
     }
 
-    //% blockId=SuperBit_Servo3 block="Servo(360°)|num %num|pos %pos|value %value"
+    //% blockId=SuperBit_Servo3 block="舵机(360°)|编号 %num|姿态 %pos|角度 %value"
     //% weight=96
     //% blockGap=10
     //% num.min=1 num.max=4 value.min=0 value.max=90
@@ -431,16 +431,16 @@ namespace ICBit {
             let pwm = us * 4096 / 20000;
             setPwm(num, 0, pwm);
         }
-        else if (pos == enPos.reverse) { //0-90 -> 90 -180
-            let us = ((90 + value) * 1800 / 180 + 600); // 0.6 ~ 2.4
-            let pwm = us * 4096 / 20000;
-            setPwm(num, 0, pwm);
-        }
+        // else if (pos == enPos.reverse) { //0-90 -> 90 -180
+        //     let us = ((90 + value) * 1800 / 180 + 600); // 0.6 ~ 2.4
+        //     let pwm = us * 4096 / 20000;
+        //     setPwm(num, 0, pwm);
+        // }
 
 
 
     }
-    //% blockId=SuperBit_MotorRun block="Motor|%index|speed(-255~255) %speed"
+    //% blockId=SuperBit_MotorRun block="电机|%index|速度(-255~255) %speed"
     //% weight=95
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -660,7 +660,7 @@ namespace ICBit {
      * @param y is Y alis, eg: 0
      * @param color is dot color, eg: 1
      */
-    //% blockId="OLED12864_I2C_PIXEL" block="set pixel at x %x|y %y|color %color"
+    //% blockId="OLED12864_I2C_PIXEL" block="设置 pixel 在 x %x|y %y|颜色 %color"
     //% parts=OLED12864_I2C trackArgs=0
     //% weight=80
     export function pixel(x: number, y: number, color: number = 1) {
@@ -690,7 +690,7 @@ namespace ICBit {
      * @param s is the text will be show, eg: 'Hello!'
      * @param color is string color, eg: 1
      */
-    //% blockId="OLED12864_I2C_SHOWSTRING" block="show string at x %x|y %y|text %s|color %color"
+    //% blockId="OLED12864_I2C_SHOWSTRING" block="显示 string 在 x %x|y %y|文本 %s|颜色 %color"
     //% weight=80 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
     export function showString(x: number, y: number, s: string, color: number = 1) {
@@ -727,7 +727,7 @@ namespace ICBit {
      * @param num is the number will be show, eg: 12
      * @param color is number color, eg: 1
      */
-    //% blockId="OLED12864_I2C_NUMBER" block="show a Number at x %x|y %y|number %num|color %color"
+    //% blockId="OLED12864_I2C_NUMBER" block="显示 a Number 在 x %x|y %y|数字 %num|颜色 %color"
     //% weight=80 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
     export function showNumber(x: number, y: number, num: number, color: number = 1) {
@@ -738,7 +738,7 @@ namespace ICBit {
     /**
      * draw / redraw screen
      */
-    //% blockId="OLED12864_I2C_DRAW" block="draw"
+    //% blockId="OLED12864_I2C_DRAW" block="画"
     //% weight=64 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
     export function draw() {
@@ -749,7 +749,7 @@ namespace ICBit {
     /**
      * clear screen
      */
-    //% blockId="OLED12864_I2C_CLEAR" block="clear"
+    //% blockId="OLED12864_I2C_CLEAR" block="清除"
     //% weight=63 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
     export function clear() {
@@ -762,7 +762,7 @@ namespace ICBit {
      * OLED initialize
      * @param addr is i2c addr, eg: 60
      */
-    //% blockId="OLED12864_I2C_init" block="init OLED with addr %addr"
+    //% blockId="OLED12864_I2C_init" block="初始化 OLED 地址为 %addr"
     //% weight=85 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
     export function init(addr: number) {
@@ -827,7 +827,7 @@ namespace ICBit {
          * @param startHue the start hue value for the rainbow, eg: 1
          * @param endHue the end hue value for the rainbow, eg: 360
          */
-        //% blockId="neopixel_set_strip_rainbow" block="%strip|show rainbow from %startHue|to %endHue"
+        //% blockId="neopixel_set_strip_rainbow" block="%strip|显示 彩虹 from %startHue|到 %endHue"
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced= true
@@ -894,7 +894,7 @@ namespace ICBit {
          * @param value current value to plot
          * @param high maximum value, eg: 255
          */
-        //% blockId=neopixel_show_bar_graph block="%strip|show bar graph of %value|up to %high"
+        //% blockId=neopixel_show_bar_graph block="%strip|显示 柱状图 of %value|up to %high"
         //% icon="\uf080"
         //% parts="neopixel"
 
@@ -932,7 +932,7 @@ namespace ICBit {
          * @param pixeloffset position of the NeoPixel in the strip
          * @param rgb RGB color of the LED
          */
-        //% blockId="neopixel_set_pixel_color" block="%strip|set pixel color at %pixeloffset|to %rgb=neopixel_colors"
+        //% blockId="neopixel_set_pixel_color" block="%strip|设置 pixel 颜色 在 %pixeloffset|to %rgb=neopixel_colors"
         //% strip.defl=strip
         //% parts="neopixel"
 
@@ -944,7 +944,7 @@ namespace ICBit {
          * Sets the number of pixels in a matrix shaped strip
          * @param width number of pixels in a row
          */
-        //% blockId=neopixel_set_matrix_width block="%strip|set matrix width %width"
+        //% blockId=neopixel_set_matrix_width block="%strip|设置 矩阵 宽度 %width"
         //% strip.defl=strip
         //% parts="neopixel"
         setMatrixWidth(width: number) {
@@ -958,7 +958,7 @@ namespace ICBit {
          * @param y horizontal position
          * @param rgb RGB color of the LED
          */
-        //% blockId="neopixel_set_matrix_color" block="%strip|set matrix color at x %x|y %y|to %rgb=neopixel_colors"
+        //% blockId="neopixel_set_matrix_color" block="%strip|设置 矩阵 颜色 在 x %x|y %y|到 %rgb=neopixel_colors"
         //% strip.defl=strip
         //% parts="neopixel"
         setMatrixColor(x: number, y: number, rgb: number) {
@@ -977,7 +977,7 @@ namespace ICBit {
          * @param pixeloffset position of the LED in the strip
          * @param white brightness of the white LED
          */
-        //% blockId="neopixel_set_pixel_white" block="%strip|set pixel white LED at %pixeloffset|to %white"
+        //% blockId="neopixel_set_pixel_white" block="%strip|设置 pixel 白色 LED at %pixeloffset|to %white"
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced= true
@@ -990,7 +990,7 @@ namespace ICBit {
         /**
          * Send all the changes to the strip.
          */
-        //% blockId="neopixel_show" block="%strip|show"
+        //% blockId="neopixel_show" block="%strip|显示"
         //% strip.defl=strip
         //% parts="neopixel"
         show() {
@@ -1003,7 +1003,7 @@ namespace ICBit {
          * Turn off all LEDs.
          * You need to call ``show`` to make the changes visible.
          */
-        //% blockId="neopixel_clear" block="%strip|clear"
+        //% blockId="neopixel_clear" block="%strip|清除"
         //% strip.defl=strip
         //% parts="neopixel"
         clear(): void {
@@ -1014,7 +1014,7 @@ namespace ICBit {
         /**
          * Gets the number of pixels declared on the strip
          */
-        //% blockId="neopixel_length" block="%strip|length"
+        //% blockId="neopixel_length" block="%strip|长度"
         //% strip.defl=strip
         //% weight=32
         //% advanced= true
@@ -1026,7 +1026,7 @@ namespace ICBit {
          * Set the brightness of the strip. This flag only applies to future operation.
          * @param brightness a measure of LED brightness in 0-255. eg: 255
          */
-        //% blockId="neopixel_set_brightness" block="%strip|set brightness %brightness"
+        //% blockId="neopixel_set_brightness" block="%strip|设置 亮度 %brightness"
         //% strip.defl=strip
         //% parts="neopixel"
         setBrightness(brightness: number): void {
@@ -1036,7 +1036,7 @@ namespace ICBit {
         /**
          * Apply brightness to current colors using a quadratic easing function.
          **/
-        //% blockId="neopixel_each_brightness" block="%strip|ease brightness"
+        //% blockId="neopixel_each_brightness" block="%strip|清除 亮度"
         //% strip.defl=strip
         //% parts="neopixel"
         easeBrightness(): void {
@@ -1065,7 +1065,7 @@ namespace ICBit {
          * @param start offset in the LED strip to start the range
          * @param length number of LEDs in the range. eg: 4
          */
-        //% blockId="neopixel_range" block="%strip|range from %start|with %length|leds"
+        //% blockId="neopixel_range" block="%strip|值域 from %start|with %length|leds"
         //% strip.defl=strip
         //% parts="neopixel"
         //% blockSetVariable=range
@@ -1089,7 +1089,7 @@ namespace ICBit {
          * You need to call ``show`` to make the changes visible.
          * @param offset number of pixels to shift forward, eg: 1
          */
-        //% blockId="neopixel_shift" block="%strip|shift pixels by %offset"
+        //% blockId="neopixel_shift" block="%strip|移动 pixels by %offset"
         //% strip.defl=strip
         //% parts="neopixel"
         //% weight= 50
@@ -1104,7 +1104,7 @@ namespace ICBit {
          * You need to call ``show`` to make the changes visible.
          * @param offset number of pixels to rotate forward, eg: 1
          */
-        //% blockId="neopixel_rotate" block="%strip|rotate pixels by %offset"
+        //% blockId="neopixel_rotate" block="%strip|旋转 pixels by %offset"
         //% strip.defl=strip
         //% parts="neopixel"
         //% weight=50
@@ -1127,7 +1127,7 @@ namespace ICBit {
         /**
          * Estimates the electrical current (mA) consumed by the current light configuration.
          */
-        //% blockId=neopixel_power block="%strip|power (mA)"
+        //% blockId=neopixel_power block="%strip|电力 (mA)"
         //% strip.defl=strip
         //% weight=32
         //% advanced= true
