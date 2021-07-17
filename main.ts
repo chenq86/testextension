@@ -132,7 +132,7 @@ namespace ICBit {
         return ((buf.getNumber(NumberFormat.UInt8BE, 1) << 8) | buf.getNumber(NumberFormat.UInt8BE, 0));
     }
 
-    //% blockId="initialize_sensor" block="初始化颜色传感器"
+    //% blockId="initialize_sensor" block="初始化颜色传感器" weight=31
     export function LCS_initialize() {
         // Make sure we're connected to the right sensor.
         let chip_id = I2C_ReadReg8(LCS_Constants.ADDRESS, (LCS_Constants.COMMAND_BIT | LCS_Constants.ID))
@@ -186,7 +186,7 @@ namespace ICBit {
         basic.pause(2 * (256 - LCS_integration_time_val) * 2.4) // delay for long enough for there to be new (post-change) complete values available
     }
 
-    //% blockId="getSensorData" block="读取颜色值 %colorId"
+    //% blockId="getSensorData" block="读取颜色值 %colorId" weight=30
     export function getColorData(color: RGB): number {
         basic.pause((256 - LCS_integration_time_val) * 2.4);
         let sum = I2C_ReadReg16(LCS_Constants.ADDRESS, (LCS_Constants.COMMAND_BIT | LCS_Constants.CDATAL));
