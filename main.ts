@@ -1140,8 +1140,7 @@ namespace ICBit {
          */
         //% blockId=neopixel_power block="%strip|power (mA)"
         //% strip.defl=strip
-        //% advanced = true
-        //% weight= 90
+        //% advanced = true weight= 70
         power(): number {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const end = this.start + this._length;
@@ -1269,8 +1268,7 @@ namespace ICBit {
      * @param blue value of the blue channel between 0 and 255. eg: 255
      */
     //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue"
-    //% advanced = true
-    //% weight= 90
+    //% advanced = true weight= 70
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
     }
@@ -1279,8 +1277,7 @@ namespace ICBit {
      * Gets the RGB value of a known color
     */
     //% blockId="neopixel_colors" block="%color"
-    //% advanced = true
-    //% weight= 90
+    //% advanced = true weight= 70
     export function colors(color: NeoPixelColors): number {
         return color;
     }
@@ -1308,8 +1305,7 @@ namespace ICBit {
      * @param l luminosity from 0 to 99
      */
     //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"
-    //% advanced = true
-    //% weight= 90
+    //% advanced = true weight= 70
     export function hsl(h: number, s: number, l: number): number {
         h = Math.round(h);
         s = Math.round(s);
