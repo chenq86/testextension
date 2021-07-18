@@ -457,6 +457,7 @@ namespace ICBit {
     //% blockGap=10
     //% num.min=1 num.max=4 value.min=0 value.max=180
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=20
+    //% color="#ECA40D" group="舵机与电机"
     export function Servo(num: enServo, value: number): void {
 
         // 50hz: 20,000 us
@@ -475,6 +476,7 @@ namespace ICBit {
     //% blockGap=10
     //% num.min=1 num.max=4 value.min=0 value.max=90
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=20
+    //% color="#ECA40D" group="舵机与电机"
     export function Servo3(num: enServo, pos: enPos, value: number): void {
 
         // 50hz: 20,000 us
@@ -502,6 +504,7 @@ namespace ICBit {
     //% weight=95
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% color="#ECA40D" group="舵机与电机"
     export function MotorRun(index: enMotors, speed: number): void {
         if (!initialized) {
             initPCA9685()
@@ -717,7 +720,8 @@ namespace ICBit {
      */
     //% blockId="OLED12864_I2C_PIXEL" block="设置 pixel 在 x %x|y %y|颜色 %color"
     //% parts=OLED12864_I2C trackArgs=0
-    //% weight=80
+    //% weight=80 
+    //% group="OLED显示屏" color=#0855AA
     export function pixel(x: number, y: number, color: number = 1) {
         let page = y >> 3
         let shift_page = y % 8
@@ -748,6 +752,7 @@ namespace ICBit {
     //% blockId="OLED12864_I2C_SHOWSTRING" block="显示 string 在 x %x|y %y|文本 %s|颜色 %color"
     //% weight=80 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
+    //% group="OLED显示屏" color=#0855AA
     export function showString(x: number, y: number, s: string, color: number = 1) {
         let col = 0
         let p = 0
@@ -785,6 +790,7 @@ namespace ICBit {
     //% blockId="OLED12864_I2C_NUMBER" block="显示 数字 在 x %x|y %y|数字 %num|颜色 %color"
     //% weight=80 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
+    //% group="OLED显示屏" color=#0855AA
     export function showNumber(x: number, y: number, num: number, color: number = 1) {
         showString(x, y, num.toString(), color)
     }
@@ -796,6 +802,7 @@ namespace ICBit {
     //% blockId="OLED12864_I2C_DRAW" block="画"
     //% weight=64 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
+    //% group="OLED显示屏" color=#0855AA
     export function draw() {
         set_pos()
         pins.i2cWriteBuffer(_I2CAddr, _screen)
@@ -807,6 +814,7 @@ namespace ICBit {
     //% blockId="OLED12864_I2C_CLEAR" block="清除"
     //% weight=63 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
+    //% group="OLED显示屏" color=#0855AA
     export function clear() {
         _screen.fill(0)
         _screen[0] = 0x40
@@ -820,6 +828,7 @@ namespace ICBit {
     //% blockId="OLED12864_I2C_init" block="初始化 OLED 地址为 %addr"
     //% weight=85 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
+    //% group="OLED显示屏" color=#0855AA
     export function init(addr: number) {
         _I2CAddr = addr;
         cmd1(0xAE)       // SSD1306_DISPLAYOFF
