@@ -45,11 +45,11 @@ enum NeoPixelColors {
  * Different modes for RGB or RGB+W NeoPixel strips
  */
 enum NeoPixelMode {
-    //% block="RGB (GRB format)"
+    //% block="RGB (GRB 格式)"
     RGB = 1,
     //% block="RGB+W"
     RGBW = 2,
-    //% block="RGB (RGB format)"
+    //% block="RGB (RGB 格式)"
     RGB_RGB = 3
 }
 
@@ -1065,7 +1065,7 @@ namespace ICBit {
          * @param start offset in the LED strip to start the range
          * @param length number of LEDs in the range. eg: 4
          */
-        //% blockId="neopixel_range" block="%strip|值域 从 %start| %length|leds"
+        //% blockId="neopixel_range" block="%strip|值域 从 %start|到 %length|leds"
         //% strip.defl=strip
         //% parts="neopixel"
         //% blockSetVariable=range
@@ -1232,7 +1232,7 @@ namespace ICBit {
      * @param pin the pin where the neopixel is connected.
      * @param numleds number of leds in the strip, eg: 24,30,60,64
      */
-    //% blockId="neopixel_create" block="NeoPixel 在 端口 %pin| %numleds|和 leds 使用 %mode"
+    //% blockId="neopixel_create" block="NeoPixel 在 端口 %pin|用 %numleds| leds 模式 %mode"
     //% parts="neopixel"
     //% colorSecondary="#FFFFFF"
     //% trackArgs=0,2
