@@ -312,7 +312,10 @@ namespace ICBit {
 
     let initialized = false
 
-
+    export enum enSteppers {
+        B1 = 0x1,
+        B2 = 0x2
+    }
 
 
     export enum enPos {
@@ -324,6 +327,22 @@ namespace ICBit {
         stop = 2
     }
 
+    export enum enTurns {
+        //% blockId="T1B4" block="1/4"
+        T1B4 = 90,
+        //% blockId="T1B2" block="1/2"
+        T1B2 = 180,
+        //% blockId="T1B0" block="1"
+        T1B0 = 360,
+        //% blockId="T2B0" block="2"
+        T2B0 = 720,
+        //% blockId="T3B0" block="3"
+        T3B0 = 1080,
+        //% blockId="T4B0" block="4"
+        T4B0 = 1440,
+        //% blockId="T5B0" block="5"
+        T5B0 = 1800
+    }
 
 
     export enum enServo {
@@ -396,6 +415,38 @@ namespace ICBit {
         pins.i2cWriteBuffer(PCA9685_ADD, buf);
     }
 
+    function setStepper(index: number, dir: boolean): void {
+        if (index == enSteppers.B1) {
+            if (dir) {
+                setPwm(11, STP_CHA_L, STP_CHA_H);
+                setPwm(9, STP_CHB_L, STP_CHB_H);
+                setPwm(10, STP_CHC_L, STP_CHC_H);
+                setPwm(8, STP_CHD_L, STP_CHD_H);
+            } else {
+                setPwm(8, STP_CHA_L, STP_CHA_H);
+                setPwm(10, STP_CHB_L, STP_CHB_H);
+                setPwm(9, STP_CHC_L, STP_CHC_H);
+                setPwm(11, STP_CHD_L, STP_CHD_H);
+            }
+        } else {
+            if (dir) {
+                setPwm(13, STP_CHA_L, STP_CHA_H);
+                setPwm(15, STP_CHB_L, STP_CHB_H);
+                setPwm(14, STP_CHC_L, STP_CHC_H);
+                setPwm(16, STP_CHD_L, STP_CHD_H);
+            } else {
+                setPwm(16, STP_CHA_L, STP_CHA_H);
+                setPwm(14, STP_CHB_L, STP_CHB_H);
+                setPwm(15, STP_CHC_L, STP_CHC_H);
+                setPwm(13, STP_CHD_L, STP_CHD_H);
+            }
+        }
+    }
+
+    function stopMotor(index: number) {
+        setPwm(index, 0, 0);
+        setPwm(index + 1, 0, 0);
+    }
 
 
     //% blockId=SuperBit_Servo block="舵机(180°)| %num|角度 %value"
@@ -411,6 +462,10 @@ namespace ICBit {
         setPwm(num, 0, pwm);
 
     }
+
+
+
+
 
     //% blockId=SuperBit_Servo3 block="舵机(360°)| %num|姿态 %pos|角度 %value"
     //% weight=96
@@ -477,9 +532,6 @@ namespace ICBit {
                 setPwm(a, 0, -speed)
             }
         }
-
-
-        
 
     }
 
