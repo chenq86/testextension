@@ -398,7 +398,7 @@ namespace ICBit {
 
 
 
-    //% blockId=SuperBit_Servo block="舵机(180°)|编号 %num|角度 %value"
+    //% blockId=SuperBit_Servo block="舵机(180°)| %num|角度 %value"
     //% weight=97
     //% blockGap=10
     //% num.min=1 num.max=4 value.min=0 value.max=180
@@ -412,7 +412,7 @@ namespace ICBit {
 
     }
 
-    //% blockId=SuperBit_Servo3 block="舵机(360°)|编号 %num|姿态 %pos|角度 %value"
+    //% blockId=SuperBit_Servo3 block="舵机(360°)| %num|姿态 %pos|角度 %value"
     //% weight=96
     //% blockGap=10
     //% num.min=1 num.max=4 value.min=0 value.max=90
@@ -894,7 +894,7 @@ namespace ICBit {
          * @param value current value to plot
          * @param high maximum value, eg: 255
          */
-        //% blockId=neopixel_show_bar_graph block="%strip|显示 柱状图 of %value|到 %high"
+        //% blockId=neopixel_show_bar_graph block="%strip|显示 柱状图 从 %value|到 %high"
         //% icon="\uf080"
         //% parts="neopixel"
 
@@ -1065,7 +1065,7 @@ namespace ICBit {
          * @param start offset in the LED strip to start the range
          * @param length number of LEDs in the range. eg: 4
          */
-        //% blockId="neopixel_range" block="%strip|值域 从 %start|with %length|leds"
+        //% blockId="neopixel_range" block="%strip|值域 从 %start| %length|leds"
         //% strip.defl=strip
         //% parts="neopixel"
         //% blockSetVariable=range
@@ -1089,7 +1089,7 @@ namespace ICBit {
          * You need to call ``show`` to make the changes visible.
          * @param offset number of pixels to shift forward, eg: 1
          */
-        //% blockId="neopixel_shift" block="%strip|移动 pixels by %offset"
+        //% blockId="neopixel_shift" block="%strip|移动 pixels %offset"
         //% strip.defl=strip
         //% parts="neopixel"
         //% weight= 50
@@ -1104,7 +1104,7 @@ namespace ICBit {
          * You need to call ``show`` to make the changes visible.
          * @param offset number of pixels to rotate forward, eg: 1
          */
-        //% blockId="neopixel_rotate" block="%strip|旋转 pixels by %offset"
+        //% blockId="neopixel_rotate" block="%strip|旋转 pixels %offset"
         //% strip.defl=strip
         //% parts="neopixel"
         //% weight=50
@@ -1232,7 +1232,7 @@ namespace ICBit {
      * @param pin the pin where the neopixel is connected.
      * @param numleds number of leds in the strip, eg: 24,30,60,64
      */
-    //% blockId="neopixel_create" block="NeoPixel 在 pin %pin|with %numleds|leds as %mode"
+    //% blockId="neopixel_create" block="NeoPixel 在 端口 %pin| %numleds|和 leds 使用 %mode"
     //% parts="neopixel"
     //% colorSecondary="#FFFFFF"
     //% trackArgs=0,2
@@ -1257,7 +1257,7 @@ namespace ICBit {
      * @param green value of the green channel between 0 and 255. eg: 255
      * @param blue value of the blue channel between 0 and 255. eg: 255
      */
-    //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue"
+    //% blockId="neopixel_rgb" block="红 %red|绿 %green|蓝 %blue"
     //% weight=32
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
