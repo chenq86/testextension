@@ -19,25 +19,25 @@ enum RGB {
 }
 
 enum NeoPixelColors {
-    //% block=red
+    //% block=红
     Red = 0xFF0000,
-    //% block=orange
+    //% block=橙
     Orange = 0xFFA500,
-    //% block=yellow
+    //% block=黄
     Yellow = 0xFFFF00,
-    //% block=green
+    //% block=绿
     Green = 0x00FF00,
-    //% block=blue
+    //% block=蓝
     Blue = 0x0000FF,
-    //% block=indigo
+    //% block=靛蓝
     Indigo = 0x4b0082,
-    //% block=violet
+    //% block=紫罗兰
     Violet = 0x8a2be2,
-    //% block=purple
+    //% block=紫
     Purple = 0xFF00FF,
-    //% block=white
+    //% block=白
     White = 0xFFFFFF,
-    //% block=black
+    //% block=黑
     Black = 0x000000
 }
 
