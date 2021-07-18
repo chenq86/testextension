@@ -894,7 +894,7 @@ namespace ICBit {
          * @param value current value to plot
          * @param high maximum value, eg: 255
          */
-        //% blockId=neopixel_show_bar_graph block="%strip|显示 柱状图 of %value|up to %high"
+        //% blockId=neopixel_show_bar_graph block="%strip|显示 柱状图 of %value|到 %high"
         //% icon="\uf080"
         //% parts="neopixel"
 
@@ -932,7 +932,7 @@ namespace ICBit {
          * @param pixeloffset position of the NeoPixel in the strip
          * @param rgb RGB color of the LED
          */
-        //% blockId="neopixel_set_pixel_color" block="%strip|设置 pixel 颜色 在 %pixeloffset|to %rgb=neopixel_colors"
+        //% blockId="neopixel_set_pixel_color" block="%strip|设置 pixel 颜色 在 %pixeloffset|到 %rgb=neopixel_colors"
         //% strip.defl=strip
         //% parts="neopixel"
 
@@ -977,7 +977,7 @@ namespace ICBit {
          * @param pixeloffset position of the LED in the strip
          * @param white brightness of the white LED
          */
-        //% blockId="neopixel_set_pixel_white" block="%strip|设置 pixel 白色 LED at %pixeloffset|to %white"
+        //% blockId="neopixel_set_pixel_white" block="%strip|设置 pixel 白色 LED 在 %pixeloffset|到 %white"
         //% strip.defl=strip
         //% parts="neopixel"
         //% advanced= true
@@ -1065,7 +1065,7 @@ namespace ICBit {
          * @param start offset in the LED strip to start the range
          * @param length number of LEDs in the range. eg: 4
          */
-        //% blockId="neopixel_range" block="%strip|值域 from %start|with %length|leds"
+        //% blockId="neopixel_range" block="%strip|值域 从 %start|with %length|leds"
         //% strip.defl=strip
         //% parts="neopixel"
         //% blockSetVariable=range
@@ -1232,7 +1232,7 @@ namespace ICBit {
      * @param pin the pin where the neopixel is connected.
      * @param numleds number of leds in the strip, eg: 24,30,60,64
      */
-    //% blockId="neopixel_create" block="NeoPixel at pin %pin|with %numleds|leds as %mode"
+    //% blockId="neopixel_create" block="NeoPixel 在 pin %pin|with %numleds|leds as %mode"
     //% parts="neopixel"
     //% colorSecondary="#FFFFFF"
     //% trackArgs=0,2
