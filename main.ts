@@ -63,7 +63,7 @@ namespace ICBit {
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
     //% blockId=sonar_ping block="ping trig %trig|echo %echo|单位 %unit" weight=29
-    //% group="sonar" subcategory="超声波传感器" color="#2c3e50"
+    //% group="超声波传感器" color="#2c3e50"
     export function ping(trig: DigitalPin, echo: DigitalPin, unit: PingUnit, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
@@ -169,7 +169,7 @@ namespace ICBit {
     }
 
     //% blockId="initialize_sensor" block="初始化颜色传感器" weight=31
-    //% group="color" subcategory="颜色传感器" color="#3CB371"
+    //% group="颜色传感器" color="#3CB371"
     export function LCS_initialize() {
         // Make sure we're connected to the right sensor.
         let chip_id = I2C_ReadReg8(LCS_Constants.ADDRESS, (LCS_Constants.COMMAND_BIT | LCS_Constants.ID))
@@ -224,7 +224,7 @@ namespace ICBit {
     }
 
     //% blockId="getSensorData" block="读取颜色值 %colorId" weight=30
-    //% group="color" subcategory="颜色传感器" color="#3CB371"
+    //% group="颜色传感器" color="#3CB371"
     export function getColorData(color: RGB): number {
         basic.pause((256 - LCS_integration_time_val) * 2.4);
         let sum = I2C_ReadReg16(LCS_Constants.ADDRESS, (LCS_Constants.COMMAND_BIT | LCS_Constants.CDATAL));
