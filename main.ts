@@ -334,10 +334,10 @@ namespace ICBit {
         S4
     }
     export enum enMotors {
-        M1 = 15,
-        M2 = 16,
+        M1 = 8,
+        M2 = 10,
         M3 = 13,
-        M4 = 14
+        M4 = 15
     }
 
     function i2cwrite(addr: number, reg: number, value: number) {
