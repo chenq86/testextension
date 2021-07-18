@@ -502,6 +502,7 @@ namespace ICBit {
     }
     //% blockId=SuperBit_MotorRun block="电机|%index|速度(-255~255) %speed"
     //% weight=95
+    //% blockGap=10
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% color="#ECA40D" group="舵机与电机"
@@ -721,6 +722,7 @@ namespace ICBit {
     //% blockId="OLED12864_I2C_PIXEL" block="设置 pixel 在 x %x|y %y|颜色 %color"
     //% parts=OLED12864_I2C trackArgs=0
     //% weight=80 
+    //% blockGap=10
     //% group="OLED显示屏" color=#0855AA
     export function pixel(x: number, y: number, color: number = 1) {
         let page = y >> 3
@@ -750,7 +752,7 @@ namespace ICBit {
      * @param color is string color, eg: 1
      */
     //% blockId="OLED12864_I2C_SHOWSTRING" block="显示 string 在 x %x|y %y|文本 %s|颜色 %color"
-    //% weight=80 blockGap=8
+    //% weight=80 blockGap=10
     //% parts=OLED12864_I2C trackArgs=0
     //% group="OLED显示屏" color=#0855AA
     export function showString(x: number, y: number, s: string, color: number = 1) {
@@ -788,7 +790,7 @@ namespace ICBit {
      * @param color is number color, eg: 1
      */
     //% blockId="OLED12864_I2C_NUMBER" block="显示 数字 在 x %x|y %y|数字 %num|颜色 %color"
-    //% weight=80 blockGap=8
+    //% weight=80 blockGap=10
     //% parts=OLED12864_I2C trackArgs=0
     //% group="OLED显示屏" color=#0855AA
     export function showNumber(x: number, y: number, num: number, color: number = 1) {
@@ -800,7 +802,7 @@ namespace ICBit {
      * draw / redraw screen
      */
     //% blockId="OLED12864_I2C_DRAW" block="画"
-    //% weight=64 blockGap=8
+    //% weight=64 blockGap=10
     //% parts=OLED12864_I2C trackArgs=0
     //% group="OLED显示屏" color=#0855AA
     export function draw() {
@@ -812,7 +814,7 @@ namespace ICBit {
      * clear screen
      */
     //% blockId="OLED12864_I2C_CLEAR" block="清除"
-    //% weight=63 blockGap=8
+    //% weight=63 blockGap=10
     //% parts=OLED12864_I2C trackArgs=0
     //% group="OLED显示屏" color=#0855AA
     export function clear() {
@@ -826,7 +828,7 @@ namespace ICBit {
      * @param addr is i2c addr, eg: 60
      */
     //% blockId="OLED12864_I2C_init" block="初始化 OLED 地址为 %addr"
-    //% weight=85 blockGap=8
+    //% weight=85 blockGap=10
     //% parts=OLED12864_I2C trackArgs=0
     //% group="OLED显示屏" color=#0855AA
     export function init(addr: number) {
@@ -879,7 +881,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_strip_color" block="%strip|显示 颜色 %rgb=neopixel_colors"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         showColor(rgb: number) {
             rgb = rgb >> 0;
             this.setAllRGB(rgb);
@@ -893,7 +895,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_strip_rainbow" block="%strip|显示 彩虹 从 %startHue|到 %endHue"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         //% advanced= true
         showRainbow(startHue: number = 1, endHue: number = 360) {
             if (this._length <= 0) return;
@@ -960,7 +962,7 @@ namespace ICBit {
          */
         //% blockId=neopixel_show_bar_graph block="%strip|显示 柱状图 从 %value|到 %high"
         //% icon="\uf080"
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
 
         showBarGraph(value: number, high: number): void {
             if (high <= 0) {
@@ -998,8 +1000,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_pixel_color" block="%strip|设置 pixel 颜色 在 %pixeloffset|到 %rgb=neopixel_colors"
         //% strip.defl=strip
-        //% parts="neopixel"
-
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         setPixelColor(pixeloffset: number, rgb: number): void {
             this.setPixelRGB(pixeloffset >> 0, rgb >> 0);
         }
@@ -1010,7 +1011,7 @@ namespace ICBit {
          */
         //% blockId=neopixel_set_matrix_width block="%strip|设置 矩阵 宽度 %width"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         setMatrixWidth(width: number) {
             this._matrixWidth = Math.min(this._length, width >> 0);
         }
@@ -1024,7 +1025,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_matrix_color" block="%strip|设置 矩阵 颜色 在 x %x|y %y|到 %rgb=neopixel_colors"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         setMatrixColor(x: number, y: number, rgb: number) {
             if (this._matrixWidth <= 0) return; // not a matrix, ignore
             x = x >> 0;
@@ -1043,7 +1044,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_pixel_white" block="%strip|设置 pixel 白色 LED 在 %pixeloffset|到 %white"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         //% advanced= true
         setPixelWhiteLED(pixeloffset: number, white: number): void {
             if (this._mode === NeoPixelMode.RGBW) {
@@ -1056,7 +1057,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_show" block="%strip|显示"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         show() {
             // only supported in beta
             // ws2812b.setBufferMode(this.pin, this._mode);
@@ -1069,7 +1070,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_clear" block="%strip|清除"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         clear(): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             this.buf.fill(0, this.start * stride, this._length * stride);
@@ -1082,6 +1083,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% weight=32
         //% advanced= true
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         length() {
             return this._length;
         }
@@ -1092,7 +1094,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_set_brightness" block="%strip|设置 亮度 %brightness"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
         }
@@ -1102,7 +1104,7 @@ namespace ICBit {
          **/
         //% blockId="neopixel_each_brightness" block="%strip|清除 亮度"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         easeBrightness(): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const br = this.brightness;
@@ -1131,7 +1133,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_range" block="%strip|值域 从 %start|到 %length|leds"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         //% blockSetVariable=range
         //% weight= 52
         range(start: number, length: number): Strip {
@@ -1155,7 +1157,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_shift" block="%strip|移动 pixels %offset"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         //% weight= 50
         shift(offset: number = 1): void {
             offset = offset >> 0;
@@ -1170,7 +1172,7 @@ namespace ICBit {
          */
         //% blockId="neopixel_rotate" block="%strip|旋转 pixels %offset"
         //% strip.defl=strip
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         //% weight=50
         rotate(offset: number = 1): void {
             offset = offset >> 0;
@@ -1181,7 +1183,7 @@ namespace ICBit {
         /**
          * Set the pin where the neopixel is connected, defaults to P0.
          */
-        //% parts="neopixel"
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         setPin(pin: DigitalPin): void {
             this.pin = pin;
             pins.digitalWritePin(this.pin, 0);
@@ -1195,6 +1197,7 @@ namespace ICBit {
         //% strip.defl=strip
         //% weight=32
         //% advanced= true
+        //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
         power(): number {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const end = this.start + this._length;
@@ -1297,8 +1300,7 @@ namespace ICBit {
      * @param numleds number of leds in the strip, eg: 24,30,60,64
      */
     //% blockId="neopixel_create" block="NeoPixel 在 端口 %pin|用 %numleds| leds 模式 %mode"
-    //% parts="neopixel"
-    //% colorSecondary="#FFFFFF"
+    //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
     //% trackArgs=0,2
     //% blockSetVariable=strip
     //% weight=51
@@ -1323,6 +1325,7 @@ namespace ICBit {
      */
     //% blockId="neopixel_rgb" block="红 %red|绿 %green|蓝 %blue"
     //% weight=32
+    //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
     }
@@ -1332,6 +1335,7 @@ namespace ICBit {
     */
     //% blockId="neopixel_colors" block="%color"
     //% weight=32
+    //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
     export function colors(color: NeoPixelColors): number {
         return color;
     }
@@ -1360,6 +1364,7 @@ namespace ICBit {
      */
     //% blockId=neopixelHSL block="色度 %h|饱和度 %s|亮度 %l"
     //% weight=32
+    //% parts="neopixel" color=#2699BF group="彩灯" blockGap=10
     export function hsl(h: number, s: number, l: number): number {
         h = Math.round(h);
         s = Math.round(s);
